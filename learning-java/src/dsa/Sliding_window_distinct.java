@@ -8,8 +8,8 @@ public class Sliding_window_distinct {
 		int[] arr = {100000, 100000, 99999};
 		HashMap<Integer,Integer> hm = new HashMap<>();
 		int k = 2;
-		int winsum = 0;
-		int maxsum = 0;
+		long winsum = 0;
+		long maxsum = 0;
 		//calculating first window size
 		for(int i = 0;i<k;i++) {
 			hm.put(arr[i], hm.getOrDefault(arr[i], 0)+1);
@@ -38,3 +38,4 @@ public class Sliding_window_distinct {
 	}
 
 }
+
