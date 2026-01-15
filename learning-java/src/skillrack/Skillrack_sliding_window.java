@@ -9,19 +9,20 @@ public class Skillrack_sliding_window {
 		int large = Integer.MIN_VALUE;
 		int small = arr[0];
 		for(int i = 0;i<k;i++) {
-			if(arr[i]>small)
-				small=arr[i];
+			small = Math.max(small,arr[i]);
+			//if(arr[i]>small)
+			//	small=arr[i];
 		}
-		
 		for(int i =1;i<=n-k;i++) {
-			
 			for(int j = i;j<=i+k-1;j++) {
-				if(arr[j]>large)
-					large = arr[j];
+				large = Math.max(large, arr[j]);
+				//if(arr[j]>large)
+					//large = arr[j];
 			}
-			if(large<small) {
-				small=large;
-			}
+			small=Math.min(large, small);
+			//if(large<small) {
+				//small=large;
+			//}
 			//System.out.println(small);
 			large=Integer.MIN_VALUE;
 		}
