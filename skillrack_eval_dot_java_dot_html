@@ -1,0 +1,50 @@
+<html><head>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.6; max-width: 900px; margin: 40px auto; padding: 20px; background: #f6f8fa; }
+        .card { background: white; border: 1px solid #d0d7de; border-radius: 6px; padding: 16px; margin-bottom: 10px; }
+        a { color: #0969da; text-decoration: none; font-weight: bold; }
+        pre { background: #eeeeee; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid #d0d7de; font-family: 'Consolas', 'Monaco', monospace; }
+        .breadcrumb { margin-bottom: 20px; color: #57606a; }
+        h1 { color: #24292f; border-bottom: 1px solid #d0d7de; padding-bottom: 10px; }
+        h2 { color: #24292f; margin-top: 0; }
+        li { margin-bottom: 5px; }
+    </style>
+    <title>eval.java</title></head><body><div class='breadcrumb'><a href='index.html'>🏠 Home</a> / eval.java</div><h2>eval.java</h2><pre><code>package skillrack;
+class util{
+	static void eval(String exp) {
+		String arr[] = exp.split(&quot;((?&lt;=[+*=])|(?=[+*=]))&quot;);
+		int xindex=-1; // 1 means X is  in right
+		int isPlus=0; // 1 means + else *(0)
+		int res = 0;
+		for(int i=0;i&lt;arr.length;i++) {
+			if(arr[i].equals(&quot;X&quot;))
+				xindex=i;
+		}
+		if(arr[1].equals(&quot;+&quot;))
+			isPlus=1;
+		if(isPlus==1) {
+			if(xindex==0)
+				res=Integer.valueOf(arr[4]) - Integer.valueOf(arr[2]);
+			else if(xindex==2)
+				res=Integer.valueOf(arr[4])-Integer.valueOf(arr[0]);
+			else
+				res=Integer.valueOf(arr[0])+Integer.valueOf(arr[2]);
+		}else {
+			if(xindex==0)
+				res=Integer.valueOf(arr[4]) / Integer.valueOf(arr[2]);
+			else if(xindex==2)
+				res=Integer.valueOf(arr[4])/Integer.valueOf(arr[0]);
+			else
+				res=Integer.valueOf(arr[0])*Integer.valueOf(arr[2]);
+		}
+		System.out.println(res);	
+	}
+}
+public class eval {
+public static void main(String args[]) {
+	String exp1 = &quot;2*X=4&quot;;
+	//System.out.print(util.eval(exp1));
+	util.eval(exp1);
+}
+}
+</code></pre></body></html>

@@ -1,0 +1,32 @@
+<html><head>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.6; max-width: 900px; margin: 40px auto; padding: 20px; background: #f6f8fa; }
+        .card { background: white; border: 1px solid #d0d7de; border-radius: 6px; padding: 16px; margin-bottom: 10px; }
+        a { color: #0969da; text-decoration: none; font-weight: bold; }
+        pre { background: #eeeeee; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid #d0d7de; font-family: 'Consolas', 'Monaco', monospace; }
+        .breadcrumb { margin-bottom: 20px; color: #57606a; }
+        h1 { color: #24292f; border-bottom: 1px solid #d0d7de; padding-bottom: 10px; }
+        h2 { color: #24292f; margin-top: 0; }
+        li { margin-bottom: 5px; }
+    </style>
+    <title>Second_largest_1.java</title></head><body><div class='breadcrumb'><a href='index.html'>🏠 Home</a> / Second_largest_1.java</div><h2>Second_largest_1.java</h2><pre><code>package dsa.array;
+
+import java.util.Arrays;
+
+public class Second_largest_1 {
+	// approach 1 - O(nlogn)
+	public static void main(String[] args) {
+		int[] arr = {3,2,2,3,1};
+		Arrays.sort(arr); // - in built quick sort O(log n)
+		int n = arr.length;
+		int second_largest = 0;
+		for(int i =n-2;i&gt;=0;i--) {
+			if(arr[i] != arr[n-1]) {
+				second_largest = arr[i];
+				break; // important thing
+			}
+		}
+		System.out.println(second_largest);
+	}
+}
+</code></pre></body></html>

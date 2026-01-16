@@ -1,0 +1,25 @@
+<html><head>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.6; max-width: 900px; margin: 40px auto; padding: 20px; background: #f6f8fa; }
+        .card { background: white; border: 1px solid #d0d7de; border-radius: 6px; padding: 16px; margin-bottom: 10px; }
+        a { color: #0969da; text-decoration: none; font-weight: bold; }
+        pre { background: #eeeeee; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid #d0d7de; font-family: 'Consolas', 'Monaco', monospace; }
+        .breadcrumb { margin-bottom: 20px; color: #57606a; }
+        h1 { color: #24292f; border-bottom: 1px solid #d0d7de; padding-bottom: 10px; }
+        h2 { color: #24292f; margin-top: 0; }
+        li { margin-bottom: 5px; }
+    </style>
+    <title>datatype.java</title></head><body><div class='breadcrumb'><a href='index.html'>🏠 Home</a> / datatype.java</div><h2>datatype.java</h2><pre><code>package test;
+
+public class datatype {
+public static void main(String args[]) {
+	int a = 54; //number that to be shifted in bits
+	int k = 2; //no of bits it should be shifted
+	int c = a &lt;&lt; k;
+	int d = (int) (a*Math.pow(2, k));
+	int rs = a &gt;&gt; k;
+	int res= (int)(Math.floorDiv(a, (int)Math.pow(2, k)));
+	System.out.print(rs+&quot; &quot;+res);
+}
+}
+</code></pre></body></html>

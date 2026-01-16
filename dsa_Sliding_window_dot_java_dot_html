@@ -1,0 +1,34 @@
+<html><head>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.6; max-width: 900px; margin: 40px auto; padding: 20px; background: #f6f8fa; }
+        .card { background: white; border: 1px solid #d0d7de; border-radius: 6px; padding: 16px; margin-bottom: 10px; }
+        a { color: #0969da; text-decoration: none; font-weight: bold; }
+        pre { background: #eeeeee; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid #d0d7de; font-family: 'Consolas', 'Monaco', monospace; }
+        .breadcrumb { margin-bottom: 20px; color: #57606a; }
+        h1 { color: #24292f; border-bottom: 1px solid #d0d7de; padding-bottom: 10px; }
+        h2 { color: #24292f; margin-top: 0; }
+        li { margin-bottom: 5px; }
+    </style>
+    <title>Sliding_window.java</title></head><body><div class='breadcrumb'><a href='index.html'>🏠 Home</a> / Sliding_window.java</div><h2>Sliding_window.java</h2><pre><code>package dsa;
+
+public class Sliding_window {
+	public static void main(String args[]) {
+		int[] arr = {100,200,300,400};
+		int k = 2;
+		int maxsum = 0;
+		int winsum = 0;
+		for(int i =0;i&lt;k;i++) {
+			winsum+=arr[i];
+		}
+		maxsum = winsum;
+		for(int i = k;i&lt;arr.length;i++) {
+			// arr[i-k] -&gt; previous which is start element of window - 1
+			// arr[i] -&gt; current window end element
+			winsum = winsum - arr[i-k] + arr[i];
+			if(winsum&gt;maxsum)
+				maxsum = winsum;
+		}
+		System.out.println(maxsum);
+	}
+}
+</code></pre></body></html>
