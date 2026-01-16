@@ -1,0 +1,35 @@
+name: Build and Deploy DSA Site
+on:
+  push:
+    branches:
+      - master  # Site updates immediately when you push
+  schedule:
+    - cron: '0 0 */3 * *'  # Also runs automatically every 3 days at midnight
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    # This prevents the bot from getting stuck if multiple pushes happen fast
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
+
+    steps:
+      - name: Checkout Master
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Generate Site Files
+        run: |
+          python build_site.py
+
+      - name: Deploy to Separate Branch
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: website_out 
+          branch: gh-pages
+          clean: true
