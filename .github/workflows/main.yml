@@ -2,14 +2,18 @@ name: Build and Deploy DSA Site
 on:
   push:
     branches:
-      - master  # Site updates immediately when you push
+      - master
   schedule:
-    - cron: '0 0 */3 * *'  # Also runs automatically every 3 days at midnight
+    - cron: '0 0 */3 * *'
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    # This prevents the bot from getting stuck if multiple pushes happen fast
+    
+    # ADD THESE PERMISSIONS HERE
+    permissions:
+      contents: write
+    
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: true
